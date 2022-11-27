@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="style.css">
+   <style>
+      body {
+         margin: 0;
+         padding: 0;
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+         height: 100%;
+         font-family: Roboto;
+      }
+
+      h2 {
+         color: #14213d !important;
+      }
+
+      header {
+         color: #daab26 !important;
+         width: 100%;
+         height: 15vh;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         background: #14213d;
+      }
+
+      header h1 {
+         margin: 10px;
+      }
+
+      header p {
+         text-align: center;
+         font-size: 1.5em;
+         color: #daab26 !important;
+         padding: 0;
+         margin: 0;
+      }
+
+      .content {
+         background-color: #e5e5e5;
+         height: 85vh;
+         display: flex;
+      }
+
+      .content .container .info {
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+      }
+
+
+
+      .content .info h2 {
+         display: flex;
+         align-items: center;
+         width: 90%;
+         height: 10%;
+         margin: 0;
+         padding: 0;
+         text-align: left;
+      }
+
+      .content .container {
+         width: 85%;
+         margin: auto;
+         height: 90%;
+         align-items: center;
+         display: grid;
+         grid-template-columns: 50% 50%;
+      }
+
+
+      .content .info #fileText {
+         padding: 15px;
+         border: 2px white;
+         height: 90%;
+         width: 90%;
+         resize: none;
+         border-radius: 10px;
+         box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+      }
+
+      .wrapp {
+         height: 100%;
+         width: 100%;
+      }
+
+      .input {
+         display: flex;
+         justify-content: center;
+      }
+
+      .wrapp .control {
+         height: 10%;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         width: 90%;
+         margin: auto;
+      }
+
+      .input label {
+         font-size: 1em;
+         text-align: center;
+         color: #14213d;
+         cursor: pointer;
+         padding: 10px;
+         width: fit-content;
+         border-radius: 10px;
+         border: 2px solid #14213d;
+         background-color: #daab26;
+         transition: 0.5s;
+      }
+
+      .input label:hover {
+         background-color: #14213d;
+         transform: scale(1.1);
+         color: #ffffff;
+      }
+
+      #output {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         height: 100%;
+
+      }
+
+      #output label {
+         font-size: 1.5em;
+         text-align: center;
+         color: #14213d;
+      }
+
+      #output {
+         padding: 15px;
+         border-radius: 10px;
+         width: 90%;
+         margin: 0 auto;
+         height: 90%;
+         border: 2px white;
+         box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+      }
+
+      textarea {
+         border: 2px white;
+         box-sizing: border-box;
+         resize: none;
+         font-size: 18px;
+      }
+
+      textarea:focus {
+         outline: none !important;
+         box-shadow: 0 0 10px #ff0000 !important;
+      }
+
+      #clear {
+         font-size: 1em;
+         text-align: center;
+         color: #14213d;
+         cursor: pointer;
+         padding: 10px;
+         width: fit-content;
+         border-radius: 10px;
+         border: 2px solid #14213d;
+         background-color: #daab26;
+         transition: 0.5s;
+         margin-left: 20px;
+      }
+
+      #clear:hover {
+         background-color: #14213d;
+         transform: scale(1.1);
+         color: #ffffff;
+      }
+
+      .btn {
+         display: flex;
+      }
+
+
+      @media screen and (max-width : 400px) {
+         header h1 {
+            font-size: 1.5em;
+         }
+
+         header p {
+            font-size: 1em;
+         }
+
+         h2 {
+            font-size: 1em;
+         }
+
+         textarea {
+            width: 100% !important;
+            font-size: 14px;
+         }
+
+         .content .container {
+            width: 95%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 45% 48%;
+            height: inherit;
+
+         }
+
+         .content .container .info {
+            width: 100%;
+         }
+
+         #clear {
+            font-size: 1em;
+            padding: 5px;
+         }
+
+         .input label {
+            padding: 5px;
+         }
+
+         .wrapp .control {
+            display: flex;
+            flex-direction: column;
+            height: 20%;
+         }
+
+         .content .container .wrapp {
+            width: 100%;
+         }
+
+         #output {
+            height: 70%;
+            margin-top: 5%;
+         }
+
+         .control .btn {
+            width: 100%;
+            justify-content: space-between;
+         }
+
+         .control h2 {
+            width: 100%;
+            text-align: left;
+         }
+
+
+      }
+   </style>
+</head>
+
+<body>
+   <header>
+      <h1>Курсова робота на тему:</h1>
+      <p>Створення на мові JavaScript програми-аналізатору<br /> текстового
+         документу що виводить найменше речення з документу</p>
+   </header>
+   <div class="content">
+      <div class="container">
+         <div class="info">
+            <h2>Текст з файлу: </h2>
+            <textarea id="fileText" readonly placeholder="Виберіть файл"></textarea>
+         </div>
+         <div class="wrapp">
+            <div class="control">
+               <h2>Результат:</h2>
+               <div class="btn">
+                  <div class="input">
+                     <label for="readfile">Виберіть файл</label>
+                     <input id="readfile" type="file" hidden accept="text/plain">
+                  </div>
+                  <button id='clear' onclick="handleClear()">Очистити</button>
+               </div>
+
+            </div>
+            <textarea id="output" readonly placeholder="Тут буде ваш результат..."></textarea>
+         </div>
+      </div>
+   </div>
+
+   <script>
+      var input = document.getElementById("readfile");
+      var output = document.getElementById("output");
+      var fileText = document.getElementById("fileText");
+      var text = "";
+      input.addEventListener("change", function () {
+         console.log("work");
+         if (this.files && this.files[0]) {
+            console.log("work");
+            var myFile = this.files[0];
+            var reader = new FileReader();
+            reader.addEventListener("load", function (e) {
+               fileText.textContent = e.target.result;
+               console.log(myFile);
+               countOfSentences(e.target.result, myFile.name);
+            });
+            reader.readAsText(myFile, "UTF - 8");
+         }
+      });
+
+      const countOfSentences = (text, fileName) => {
+         const re = /[.!?]/;
+         let arrWords = [];
+         let arrWord = [];
+         let result = text.split(re);
+         result.pop();
+
+         result.map((element) => {
+            arrWords.push(element.split(" ").filter((word) => word !== "").length);
+
+            element.split(" ").map((x) => arrWord.push(x));
+         });
+
+         let minValue = Math.min(...arrWords);
+         let maxValue = Math.max(...arrWords);
+         let indexMin = arrWords.indexOf(minValue);
+         let indexMax = arrWords.indexOf(maxValue);
+         let maxLengthWork = findLongestWord(arrWord);
+         if (
+            result[indexMin]?.trim() === undefined &&
+            result[indexMax]?.trim() === undefined
+         ) {
+            output.textContent =
+               "Назва файлу:\t" + fileName + "\n" +
+               "\nНайменше речення:\t" +
+               "Немає речень" + ".\n" +
+               "\nНайбільше речення:\t" +
+               "Немає речень" + ".\n"
+         } else {
+            output.textContent =
+               "Назва файлу:\t" + fileName + "\n" +
+               "\nНайменше речення:\t" + result[indexMin]?.trim() + ".\n" +
+               "\nНайбільше речення:\t" + result[indexMax]?.trim() + ".\n" +
+               "\nКількість речень:\t" + result.length?.toString() + "\n" +
+               "\nНайбільше слово в тексті:\t" + maxLengthWork?.toString() + "\n" +
+               "\nДовжина найбільшого слова:    " + maxLengthWork?.toString().length + "\n";
+         }
+      };
+      function findLongestWord(str) {
+         var longestWord = 0;
+         var resStr = "";
+         for (var i = 0; i < str.length; i++) {
+            if (str[i].length > longestWord) {
+               longestWord = str[i].length;
+               resStr = str[i];
+            }
+         }
+
+         return resStr;
+      }
+
+      function handleClear() {
+         fileText.innerText = "";
+         output.innerText = "";
+      }
+
+   </script>
+</body>
+
+</html>
